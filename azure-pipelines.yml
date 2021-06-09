@@ -34,3 +34,16 @@ steps:
     pip install pytest pytest-azurepipelines
     pytest
   displayName: 'pytest'
+  
+
+stages:
+- stage: Deploy
+  pool: 
+   name: AgentPoolName(e.g. alm-aws-pool)
+   demands:
+    - agent.name -equals Agentname (e.g. deploy-05-agent1)
+  jobs:
+  - job: BuildJob
+    steps:
+    - script: echo Building!
+
