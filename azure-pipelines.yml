@@ -9,8 +9,9 @@ trigger:
 stages:
 - stage: Deploy
   pool: 
-   name: mydockeragent
-   
+   name: Default
+   demands:
+    - agent.name -equals mydockeragent 
   jobs:
   - job: BuildJob
     steps:
