@@ -6,12 +6,12 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'ubuntu-18.04'
-  
-steps:
-  # Allows calling python without full path
-  - task: UsePythonVersion@0
-    displayName: Use Python 3.9
-    inputs:
-      versionSpec: '3.9'
+stages:
+- stage: Deploy
+  pool: 
+   name: mydockeragent
+   
+  jobs:
+  - job: BuildJob
+    steps:
+    - script: echo Building!
